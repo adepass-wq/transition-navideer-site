@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 112" role="img" aria-labelledby="t d">
+  <title id="t">Transition Navideer</title><desc id="d">Transition Navideer logo</desc>
+  <path d="M8 13h90v90H8z" fill="#fff"/>
+  <path d="M12 14h38v39L17 35z" fill="#2d2878"/>
+  <path d="M53 17l31 14-24 26-10-4z" fill="#75cf35"/>
+  <path d="M82 34l12 62-67-5 34-31z" fill="#ec6d23"/>
+  <path d="M18 39l31 18-25 31-12-20z" fill="#73cf35"/>
+  <text x="112" y="49" font-family="Arial,Helvetica,sans-serif" font-size="36" font-weight="700" fill="#2d2878">TRANSITION</text>
+  <text x="142" y="89" font-family="Arial,Helvetica,sans-serif" font-size="38" font-weight="700" fill="#75cf35">NAVIDEER</text>
+</svg>
