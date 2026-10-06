@@ -17,11 +17,39 @@ document.querySelectorAll('body *:not(script):not(style)').forEach(element=>{
 const pageName=location.pathname.split('/').pop()||'index.html';
 const makeSection=html=>{const template=document.createElement('template');template.innerHTML=html.trim();return template.content.firstElementChild};
 
+document.querySelectorAll('.brand img').forEach(image=>{
+  image.src='assets/transition-navideer-vertical-official.png';
+  image.alt='Transition Navideer®';
+});
+
+const primaryNav=document.querySelector('.navlinks');
+const evidenceLink=primaryNav?.querySelector('a[href="evidence.html"]');
+if(primaryNav&&evidenceLink&&!primaryNav.querySelector('a[href="journey.html"]')){
+  const journeyLink=document.createElement('a');
+  journeyLink.href='journey.html';
+  journeyLink.textContent='Try It';
+  evidenceLink.before(journeyLink);
+}
+
 if(pageName==='index.html'){
+  const introVideoLink=document.querySelector('.hero a[href*="youtu.be"]');
+  if(introVideoLink) introVideoLink.textContent='Watch Overview';
+  const instrument=document.querySelector('.instrument');
+  if(instrument){
+    const brandMark=document.createElement('img');
+    brandMark.className='hero-brand-mark';
+    brandMark.src='assets/transition-navideer-vertical-official.png';
+    brandMark.alt='Transition Navideer®';
+    instrument.prepend(brandMark);
+  }
   const evidence=document.querySelector('.evidence');
   if(evidence){
     evidence.before(makeSection(`<section class="product-family"><div class="wrap"><div class="section-head"><div><div class="eyebrow">Two products. Two different starting points.</div><h2>Choose the Navideer built for the decision in front of you.</h2></div><p class="lead">Both products connect career information with practical planning. The difference is where the learner begins and what the learner needs to resolve.</p></div><div class="product-family-grid"><article class="family-card transition-card"><span>FOR AN ACTIVE CAREER CHANGE</span><h3>Transition Navideer®</h3><p>Begin with a current or previous occupation. Translate the knowledge, skills and abilities you already bring, compare related careers, investigate gaps and build a transition plan.</p><ul><li>Experience and transferable assets first</li><li>Career-to-career comparison</li><li>Preparation gaps and next-step planning</li></ul><a class="btn orange" href="https://app.transitionnavideer.com/">Start a Transition</a></article><article class="family-card career-card"><span>FOR BROADER CAREER AND EDUCATION EXPLORATION</span><h3>Career Navideer®</h3><p>Begin with lifestyle priorities, an occupation of interest or a need to explore. Connect career possibilities with earnings, education routes, accredited programs and My Career Path.</p><ul><li>Lifestyle and career exploration</li><li>Education and credential navigation</li><li>Useful from middle school through adulthood</li></ul><a class="btn primary" href="https://careernavideer.net" target="_blank" rel="noopener">Explore Career Navideer®</a></article></div></div></section>`));
     evidence.before(makeSection(`<section class="video-library"><div class="wrap"><div class="section-head"><div><div class="eyebrow">See Transition Navideer® in context</div><h2>Watch the introduction built for you.</h2></div><p class="lead">These official Lifestyle Learning® videos explain how Transition Navideer® supports the people making a change and the professionals helping them move forward.</p></div><div class="video-grid"><article><div class="video-frame"><iframe src="https://www.youtube-nocookie.com/embed/x6JKjK8OJy8" title="Transition Navideer for adults" loading="lazy" allowfullscreen></iframe></div><span>INDIVIDUALS</span><h3>For adults making a career change</h3><p>See how existing experience becomes a starting point for exploring what may come next.</p></article><article><div class="video-frame"><iframe src="https://www.youtube-nocookie.com/embed/JkPvyHIgLNg" title="Transition Navideer for career counselors" loading="lazy" allowfullscreen></iframe></div><span>GUIDANCE PROFESSIONALS</span><h3>For career counselors</h3><p>See how structured comparison can make counseling conversations more focused and actionable.</p></article><article><div class="video-frame"><iframe src="https://www.youtube-nocookie.com/embed/gKzSsnQmCUg" title="Transition Navideer for workforce organizations" loading="lazy" allowfullscreen></iframe></div><span>PROGRAMS</span><h3>For workforce organizations</h3><p>See how programs can support consistent exploration while keeping human guidance central.</p></article></div><a class="channel-link" href="https://www.youtube.com/@LifestyleLearning_STEM" target="_blank" rel="noopener">Visit the Lifestyle Learning® YouTube channel</a></div></section>`));
+    document.querySelector('.situations')?.remove();
+    document.querySelector('.journey-band')?.remove();
+    document.querySelector('.case-split')?.closest('section')?.remove();
+    evidence.remove();
   }
 }
 
@@ -36,5 +64,10 @@ if(pageName==='organizations.html'){
 }
 
 document.querySelectorAll('.footer').forEach(footer=>{
-  footer.innerHTML=`<div class="wrap"><div class="footer-grid"><div><a class="brand" href="index.html"><img src="assets/transition-navideer-logo.png" alt="Transition Navideer®"></a><p>Transition Navideer® is a Lifestyle Learning® product that helps adults translate experience into informed career directions and practical next steps.</p><a class="parent-brand" href="https://lifestylelearning.com/" target="_blank" rel="noopener"><img src="assets/lifestyle-learning-logo.svg" alt="Lifestyle Learning®"></a></div><div><h4>Explore</h4><a href="index.html">Home</a><a href="how-it-works.html">How It Works</a><a href="individuals.html">Individuals</a><a href="organizations.html">Organizations</a><a href="evidence.html">Evidence</a><a href="about.html">About</a></div><div><h4>Access</h4><a href="https://app.transitionnavideer.com/">Sign Up</a><a href="https://app.transitionnavideer.com/login">Log In</a><a href="organizations.html#demo">Request a Demo</a><a href="https://careernavideer.net" target="_blank" rel="noopener">Career Navideer®</a></div><div><h4>Follow Lifestyle Learning®</h4><div class="social-links"><a href="https://www.youtube.com/@LifestyleLearning_STEM" target="_blank" rel="noopener">YouTube</a><a href="https://www.facebook.com/LifestyleLearning" target="_blank" rel="noopener">Facebook</a><a href="https://www.instagram.com/lifestylelearning/" target="_blank" rel="noopener">Instagram</a><a href="https://twitter.com/LifestyleLearn" target="_blank" rel="noopener">X</a><a href="https://www.linkedin.com/company/lifestyle-learning" target="_blank" rel="noopener">LinkedIn</a></div><h4 class="legal-heading">Legal</h4><a href="https://transitionnavideer.com/privacy-policy/" target="_blank" rel="noopener">Privacy Policy</a><a href="https://transitionnavideer.com/terms-of-use/" target="_blank" rel="noopener">Terms of Use</a></div></div><div class="legal">Copyright © 2026 Transition Navideer®, a division of Lifestyle Learning®. All rights reserved.</div></div>`;
+  footer.innerHTML=`<div class="wrap"><div class="footer-grid"><div><a class="brand footer-transition-brand" href="index.html"><img src="assets/transition-navideer-vertical-official.png" alt="Transition Navideer®"></a><p>Transition Navideer® is a Lifestyle Learning® product that helps adults translate experience into informed career directions and practical next steps.</p><a class="parent-brand" href="https://lifestylelearning.com/" target="_blank" rel="noopener"><span class="parent-icon-window"><img src="assets/lifestyle-learning-icon-orange-official.png" alt=""></span><b>Lifestyle Learning®</b></a></div><div><h4>Explore</h4><a href="index.html">Home</a><a href="how-it-works.html">How It Works</a><a href="journey.html">Try the Journey</a><a href="individuals.html">Individuals</a><a href="organizations.html">Organizations</a><a href="evidence.html">Evidence</a><a href="about.html">About</a></div><div><h4>Access</h4><a href="https://app.transitionnavideer.com/">Sign Up</a><a href="https://app.transitionnavideer.com/login">Log In</a><a href="organizations.html#demo">Request a Demo</a><a href="https://careernavideer.net" target="_blank" rel="noopener">Career Navideer®</a></div><div><h4>Follow Lifestyle Learning®</h4><div class="social-links"><a href="https://www.youtube.com/@LifestyleLearning_STEM" target="_blank" rel="noopener">YouTube</a><a href="https://www.facebook.com/LifestyleLearning" target="_blank" rel="noopener">Facebook</a><a href="https://www.instagram.com/lifestylelearning/" target="_blank" rel="noopener">Instagram</a><a href="https://twitter.com/LifestyleLearn" target="_blank" rel="noopener">X</a><a href="https://www.linkedin.com/company/lifestyle-learning" target="_blank" rel="noopener">LinkedIn</a></div><h4 class="legal-heading">Legal</h4><a href="https://transitionnavideer.com/privacy-policy/" target="_blank" rel="noopener">Privacy Policy</a><a href="https://transitionnavideer.com/terms-of-use/" target="_blank" rel="noopener">Terms of Use</a></div></div><div class="legal">Copyright © 2026 Transition Navideer®, a division of Lifestyle Learning®. All rights reserved.</div></div>`;
+});
+
+document.querySelectorAll('img').forEach(image=>{
+  if(!image.closest('.nav')&&!image.classList.contains('hero-brand-mark')) image.loading='lazy';
+  image.decoding='async';
 });
